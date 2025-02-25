@@ -31,7 +31,7 @@ export const App: React.FC = () => {
     setSelectedTodo(null);
   };
 
-  const filteredTodos = todos.filter((todo) => {
+  const filteredTodos = todos.filter(todo => {
     if (filter === 'active' && todo.completed) {
       return false;
     }
@@ -67,7 +67,7 @@ export const App: React.FC = () => {
               </div>
             ) : (
               // Todo List, только если есть данные
-              todos.length > 0 && (
+              filteredTodos.length > 0 && (
                 <div className="block">
                   <TodoList
                     todos={filteredTodos}

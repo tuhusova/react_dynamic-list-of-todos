@@ -7,7 +7,11 @@ type Props = {
   onShowDetails: (todo: Todo) => void;
 };
 
-export const TodoList: React.FC<Props> = ({ todos, selectedTodo, onShowDetails }) => (
+export const TodoList: React.FC<Props> = ({
+  todos,
+  selectedTodo,
+  onShowDetails,
+}) => (
   <table className="table is-narrow is-fullwidth">
     <thead>
       <tr>
@@ -23,7 +27,7 @@ export const TodoList: React.FC<Props> = ({ todos, selectedTodo, onShowDetails }
     </thead>
 
     <tbody>
-      {todos.map((todo) => (
+      {todos.map(todo => (
         <tr key={todo.id} data-cy="todo">
           <td className="is-vcentered">{todo.id}</td>
           <td className="is-vcentered">
@@ -34,7 +38,11 @@ export const TodoList: React.FC<Props> = ({ todos, selectedTodo, onShowDetails }
             )}
           </td>
           <td className="is-vcentered is-expanded">
-            <p className={todo.completed ? 'has-text-success' : 'has-text-danger'}>
+            <p
+              className={
+                todo.completed ? 'has-text-success' : 'has-text-danger'
+              }
+            >
               {todo.title}
             </p>
           </td>

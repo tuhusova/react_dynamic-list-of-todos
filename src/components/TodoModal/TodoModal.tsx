@@ -22,9 +22,8 @@ export const TodoModal: React.FC<Props> = ({ todo, onClose }) => {
       .then((fetchedUser) => {
         setUser(fetchedUser);   // Успешная загрузка пользователя
       })
-      .catch((err) => {
+      .catch(() => {
         setError('Failed to load user'); // Если ошибка при загрузке
-        console.error(err);   // Логирование ошибки
       })
       .finally(() => {
         setIsLoading(false);  // Завершаем процесс загрузки (в любом случае)
@@ -54,7 +53,7 @@ export const TodoModal: React.FC<Props> = ({ todo, onClose }) => {
             <p>{error}</p>
           </div>
         </div>
-      ) : (  // Если данных успешно загружены
+      ) : (  // Если данные успешно загружены
         <div className="modal-card">
           <header className="modal-card-head">
             <div

@@ -14,7 +14,7 @@ export const TodoFilter: React.FC<Props> = ({
   setFilter,
   searchQuery,
   setSearchQuery,
-  isLoading
+  isLoading,
 }) => (
   <div>
     {isLoading ? (
@@ -30,7 +30,7 @@ export const TodoFilter: React.FC<Props> = ({
             <select
               data-cy="statusSelect"
               value={filter}
-              onChange={(e) => setFilter(e.target.value)}
+              onChange={e => setFilter(e.target.value)}
             >
               <option value="all">All</option>
               <option value="active">Active</option>
@@ -46,7 +46,7 @@ export const TodoFilter: React.FC<Props> = ({
             className="input"
             placeholder="Search..."
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={e => setSearchQuery(e.target.value)}
           />
           <span className="icon is-left">
             <i className="fas fa-magnifying-glass" />
