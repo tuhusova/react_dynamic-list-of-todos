@@ -6,7 +6,7 @@ type Props = {
   setFilter: (filter: string) => void;
   searchQuery: string;
   setSearchQuery: (query: string) => void;
-  isLoading: boolean; // Получаем состояние загрузки
+  isLoading: boolean;
 };
 
 export const TodoFilter: React.FC<Props> = ({
@@ -18,12 +18,10 @@ export const TodoFilter: React.FC<Props> = ({
 }) => (
   <div>
     {isLoading ? (
-      // Лоадер отображается вместо формы
       <div className="has-text-centered">
         <Loader />
       </div>
     ) : (
-      // Форма фильтрации и поиска
       <form className="field has-addons">
         <p className="control">
           <span className="select">

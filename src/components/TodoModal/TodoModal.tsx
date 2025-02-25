@@ -11,24 +11,24 @@ type Props = {
 
 export const TodoModal: React.FC<Props> = ({ todo, onClose }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [isLoading, setIsLoading] = useState(true);  // Всеобщее состояние загрузки
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    setIsLoading(true);   // Начинаем загрузку
-    setError(null);        // Сбрасываем возможные ошибки
+    setIsLoading(true);
+    setError(null);
 
     getUser(todo.userId)
       .then((fetchedUser) => {
-        setUser(fetchedUser);   // Успешная загрузка пользователя
+        setUser(fetchedUser);
       })
       .catch(() => {
-        setError('Failed to load user'); // Если ошибка при загрузке
+        setError('Failed to load user');
       })
       .finally(() => {
-        setIsLoading(false);  // Завершаем процесс загрузки (в любом случае)
+        setIsLoading(false);
       });
-  }, [todo.userId]);  // Загрузка при изменении todo.userId
+  }, [todo.userId]);
 
   if (isLoading) {
     return (
@@ -43,7 +43,7 @@ export const TodoModal: React.FC<Props> = ({ todo, onClose }) => {
     <div className="modal is-active" data-cy="modal">
       <div className="modal-background" onClick={onClose} />
 
-      {error ? (  // Показываем ошибку, если загрузка не удалась
+      {error ? (
         <div className="modal-card">
           <header className="modal-card-head">
             <button type="button" className="delete" onClick={onClose} data-cy="modal-close" />
@@ -53,7 +53,7 @@ export const TodoModal: React.FC<Props> = ({ todo, onClose }) => {
             <p>{error}</p>
           </div>
         </div>
-      ) : (  // Если данные успешно загружены
+      ) : (
         <div className="modal-card">
           <header className="modal-card-head">
             <div
@@ -84,7 +84,7 @@ export const TodoModal: React.FC<Props> = ({ todo, onClose }) => {
                   {user.name}
                 </a>
               ) : (
-                <></>  // Пустое место, если данных нет
+                <></>
               )}
             </p>
           </div>

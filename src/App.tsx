@@ -5,7 +5,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import { TodoList } from './components/TodoList';
 import { TodoFilter } from './components/TodoFilter';
 import { TodoModal } from './components/TodoModal';
-import { Loader } from './components/Loader/Loader'; // Загрузка компонента Loader
+import { Loader } from './components/Loader/Loader';
 import { getTodos } from './api';
 import { Todo } from './types/Todo';
 
@@ -56,17 +56,15 @@ export const App: React.FC = () => {
                 setFilter={setFilter}
                 searchQuery={searchQuery}
                 setSearchQuery={setSearchQuery}
-                isLoading={isLoading} // Передаем состояние загрузки в TodoFilter
+                isLoading={isLoading}
               />
             </div>
 
-            {/* Отображаем лоадер, если идет загрузка */}
             {isLoading ? (
               <div className="has-text-centered">
                 <Loader />
               </div>
             ) : (
-              // Todo List, только если есть данные
               filteredTodos.length > 0 && (
                 <div className="block">
                   <TodoList
