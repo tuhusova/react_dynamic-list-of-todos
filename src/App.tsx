@@ -8,11 +8,13 @@ import { TodoModal } from './components/TodoModal';
 import { Loader } from './components/Loader/Loader';
 import { getTodos } from './api';
 import { Todo } from './types/Todo';
+import { TodoFilterEnum } from './types/TodoFilterEnum';
+
 
 export const App: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [filter, setFilter] = useState('all');
+  const [filter, setFilter] = useState<TodoFilterEnum>(TodoFilterEnum.All);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTodo, setSelectedTodo] = useState<Todo | null>(null);
 
@@ -32,11 +34,11 @@ export const App: React.FC = () => {
   };
 
   const filteredTodos = todos.filter(todo => {
-    if (filter === 'active' && todo.completed) {
+    if (filter === TodoFilterEnum.Active && todo.completed) {
       return false;
     }
 
-    if (filter === 'completed' && !todo.completed) {
+    if (filter === TodoFilterEnum.Completed && !todo.completed) {
       return false;
     }
 

@@ -19,7 +19,7 @@ export const TodoModal: React.FC<Props> = ({ todo, onClose }) => {
     setError(null);
 
     getUser(todo.userId)
-      .then((fetchedUser) => {
+      .then(fetchedUser => {
         setUser(fetchedUser);
       })
       .catch(() => {
@@ -46,7 +46,12 @@ export const TodoModal: React.FC<Props> = ({ todo, onClose }) => {
       {error ? (
         <div className="modal-card">
           <header className="modal-card-head">
-            <button type="button" className="delete" onClick={onClose} data-cy="modal-close" />
+            <button
+              type="button"
+              className="delete"
+              onClick={onClose}
+              data-cy="modal-close"
+            />
           </header>
 
           <div className="modal-card-body">
@@ -62,7 +67,12 @@ export const TodoModal: React.FC<Props> = ({ todo, onClose }) => {
             >
               Todo #{todo.id}
             </div>
-            <button type="button" className="delete" onClick={onClose} data-cy="modal-close" />
+            <button
+              type="button"
+              className="delete"
+              onClick={onClose}
+              data-cy="modal-close"
+            />
           </header>
 
           <div className="modal-card-body">
@@ -79,12 +89,10 @@ export const TodoModal: React.FC<Props> = ({ todo, onClose }) => {
 
               {' by '}
 
-              {user ? (
+              {user && (
                 <a href={`mailto:${user.email}`} className="has-text-link">
                   {user.name}
                 </a>
-              ) : (
-                <></>
               )}
             </p>
           </div>
