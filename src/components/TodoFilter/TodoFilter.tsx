@@ -1,5 +1,4 @@
 import React from 'react';
-import { Loader } from '../Loader/Loader';
 import { TodoFilterEnum } from '../../types/TodoFilterEnum';
 
 
@@ -16,14 +15,8 @@ export const TodoFilter: React.FC<Props> = ({
   setFilter,
   searchQuery,
   setSearchQuery,
-  isLoading,
 }) => (
-  <div>
-    {isLoading ? (
-      <div className="has-text-centered">
-        <Loader />
-      </div>
-    ) : (
+
       <form className="field has-addons">
         <p className="control">
           <span className="select">
@@ -64,6 +57,4 @@ export const TodoFilter: React.FC<Props> = ({
           )}
         </p>
       </form>
-    )}
-  </div>
 );

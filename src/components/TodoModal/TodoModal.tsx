@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Loader } from '../Loader';
 import { getUser } from '../../api';
 import { User } from '../../types/User';
 import { Todo } from '../../types/Todo';
@@ -34,7 +33,6 @@ export const TodoModal: React.FC<Props> = ({ todo, onClose }) => {
     return (
       <div className="modal is-active" data-cy="modal">
         <div className="modal-background" onClick={onClose} />
-        <Loader />
       </div>
     );
   }
